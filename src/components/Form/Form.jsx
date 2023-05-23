@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormStyled } from './Form.styled';
+import { FaPlus } from 'react-icons/fa';
+
 
 export default class Form extends Component {
   state = {
@@ -37,6 +39,7 @@ export default class Form extends Component {
               required
               onChange={this.handleChange}
               value={this.state.name}
+              autoComplete="off"
             />
           </label>
 
@@ -50,10 +53,13 @@ export default class Form extends Component {
               required
               onChange={this.handleChange}
               value={this.state.number}
+              autoComplete="off"
             />
           </label>
 
-          <button type="submit">Add Contact</button>
+          <button type="submit">
+            <FaPlus></FaPlus> Add Contact
+          </button>
         </div>
       </FormStyled>
     );

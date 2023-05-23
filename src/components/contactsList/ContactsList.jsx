@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ContactsStyled } from './ContactsList.styled';
+import StyledTrashIcon from './TrashIcon.styled';
 
 const ContactsList = ({ contacts, removeContact }) => {
   return (
@@ -9,8 +10,13 @@ const ContactsList = ({ contacts, removeContact }) => {
       <ContactsStyled>
         {contacts.map(({ name, id, number }) => (
           <li key={id} className="item">
-            <span className="name">{name}</span>: <span>{number} </span>
-            <button onClick={() => removeContact(id)}>Delete</button>
+            <span className="name">
+              {name.charAt(0).toUpperCase() + name.slice(1)}
+            </span>
+            : <span>{number} </span>
+            <StyledTrashIcon
+              onClick={() => removeContact(id)}
+            ></StyledTrashIcon>
           </li>
         ))}
       </ContactsStyled>

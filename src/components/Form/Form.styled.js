@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const FormStyled = styled.form`
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
   & .form__inputs {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     align-items: baseline;
+    flex-direction: column;
   }
   & .form__inputs p {
     display: inline-block;
@@ -40,6 +41,9 @@ export const FormStyled = styled.form`
     position: relative;
     overflow: hidden;
     height: 30px;
+    display: flex;
+    align-items: center;
+    gap:10px;
   }
   & .form__inputs button:hover {
     box-shadow: 0 0 10px rgba(81, 203, 238, 0.8),

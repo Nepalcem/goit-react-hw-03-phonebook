@@ -34,6 +34,18 @@ export default class App extends Component {
     }));
   };
 
+  componentDidMount() {
+    const parsedStorageArr = JSON.parse(localStorage.getItem('contacts'));
+    if (parsedStorageArr) {
+      this.setState({ contacts: parsedStorageArr });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
   changeFilter = e => {
     this.setState({ filter: e.currentTarget.value });
   };
@@ -46,10 +58,10 @@ export default class App extends Component {
     );
   };
 
-  removeContact = (id) => {
-    this.setState(({contacts}) => ({
-      contacts: contacts.filter(contact => contact.id !== id)
-    }))
+  removeContact = id => {
+    this.setState(({ contacts }) => ({
+      contacts: contacts.filter(contact => contact.id !== id),
+    }));
   };
 
   render() {

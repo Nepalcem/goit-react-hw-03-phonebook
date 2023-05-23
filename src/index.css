@@ -30,5 +30,12 @@ code {
 }
 
 #root {
-  margin: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+p,
+ul {
+  margin: 0;
+  padding: 0;
 }
